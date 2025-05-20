@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Transaction</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="form-wrapper">
+    <section class="form-container">
+      <h2>Add Transaction</h2>
+      <form action="/submit-transaction" method="POST">
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" name="amount" step="0.01" min="0" placeholder="0.00" required>
+        </div>
+
+        <div class="form-group">
+          <label for="type">Type</label>
+          <select id="type" name="type" required>
+            <option value="">Select Type</option>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+            <option value="saving">Saving</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="">Select Category</option>
+            <option value="1">Groceries</option>
+            <option value="2">Salary</option>
+            <option value="3">Investments</option>
+            <!-- Categories will be populated from the database -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="wallet">Wallet</label>
+          <select id="wallet" name="wallet" required>
+            <option value="">Select Wallet</option>
+            <option value="1">Main Wallet</option>
+            <option value="2">Savings Account</option>
+            <option value="3">Credit Card</option>
+            <!-- Wallets will be populated from the database -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="note">Note (Optional)</label>
+          <textarea id="note" name="note" rows="3" placeholder="Add details about this transaction"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit">Add Transaction</button>
+          <button type="button" class="btn-cancel" onclick="window.history.back()">Cancel</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
