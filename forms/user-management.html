@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Management - Admin Panel</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="user-management-form">
+    <h2>User Management</h2>
+
+    <div class="input-box search-container">
+      <label for="searchUser">Search User</label>
+      <div class="search-wrapper">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchUser" class="search-input" placeholder="Enter name or email to filter users..." />
+        <button id="clearSearch" class="search-clear" aria-label="Clear search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="userTableBody">
+          <tr>
+            <td>Peter John</td>
+            <td>johnpeter@gmail.com</td>
+            <td><span class="status status-active">Active</span></td>
+            <td class="admin-actions">
+              <button onclick="banUser(this)">Ban</button>
+              <button onclick="deactivateUser(this)">Deactivate</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Ann Ng'ang'a</td>
+            <td>Ng'ang'aAnne@gmail.com</td>
+            <td><span class="status status-banned">Banned</span></td>
+            <td class="admin-actions">
+              <button onclick="unbanUser(this)">Unban</button>
+              <button onclick="deactivateUser(this)">Deactivate</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Alice Johnson</td>
+            <td>alice@gmail.com</td>
+            <td><span class="status status-deactivated">Deactivated</span></td>
+            <td class="admin-actions">
+              <button onclick="unbanUser(this)">Activate</button>
+              <button onclick="banUser(this)">Ban</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div id="noResults" class="no-results">
+      No users found matching your search criteria.
+    </div>
+
+    <div class="login-link">
+      <a href="#">&larr; Back to Admin Dashboard</a>
+    </div>
+  </div>
+
+  <script>
+    function banUser(btn) {
+      const statusCell = btn.closest("tr").children[2];
+      statusCell.innerHTML = '<span class="status status-banned">Banned</span>';
+      alert("User banned.");
+    }
+
+    function unbanUser(btn) {
+      const statusCell = btn.closest("tr").children[2];
+      statusCell.innerHTML = '<span class="status status-active">Active</span>';
+      alert("User unbanned.");
+    }
+
+    function deactivateUser(btn) {
+      const statusCell = btn.closest("tr").children[2];
+      statusCell.innerHTML = '<span class="status status-deactivated">Deactivated</span>';
+      alert("User deactivated.");
+    }
+
+    // Improved search functionality
+    const searchInput = document.getElementById("searchUser");
+    const clearButton = document.getElementById("clearSearch");
+    const noResultsMessage = document.getElementById("noResults");
+    
+    // Show/hide clear button based on search input
+    searchInput.addEventListener("input", function() {
+      const query = this.value.toLowerCase().trim();
+      const rows = document.querySelectorAll("#userTableBody tr");
+      let matchCount = 0;
+      
+      rows.forEach(row => {
+        const name = row.children[0].textContent.toLowerCase();
+        const email = row.children[1].textContent.toLowerCase();
+        const isMatch = name.includes(query) || email.includes(query);
+        
+        row.style.display = isMatch ? "" : "none";
+        if (isMatch) matchCount++;
+      });
+      
+      // Show/hide no results message
+      noResultsMessage.style.display = matchCount === 0 ? "block" : "none";
+      
+      // Show/hide clear button
+      clearButton.style.display = query.length > 0 ? "block" : "none";
+    });
+    
+    // Clear search functionality
+    clearButton.addEventListener("click", function() {
+      searchInput.value = "";
+      searchInput.focus();
+      clearButton.style.display = "none";
+      
+      // Show all rows
+      const rows = document.querySelectorAll("#userTableBody tr");
+      rows.forEach(row => {
+        row.style.display = "";
+      });
+      
+      // Hide no results message
+      noResultsMessage.style.display = "none";
+    });
+    
+    // Add debounce for search to improve performance
+    function debounce(func, wait) {
+      let timeout;
+      return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+      };
+    }
+    
+    const debouncedSearch = debounce(function() {
+      const event = new Event("input");
+      searchInput.dispatchEvent(event);
+    }, 300);
+    
+    searchInput.addEventListener("keyup", debouncedSearch);
+    
+    // Add keyboard accessibility - clear search on Escape key
+    searchInput.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") {
+        clearButton.click();
+      }
+    });
+  </script>
+</body>
+</html>

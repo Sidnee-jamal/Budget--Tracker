@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login - Budget Tracker</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <form class="registration-form" id="admin-login-form">
+    <h2>Admin Login</h2>
+
+    <div class="input-box">
+      <label for="username">Username or Email</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+
+    <div class="input-box">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+
+    <button type="submit">Login</button>
+    
+    <div class="login-link">
+      <a href="#">Back to Home</a>
+    </div>
+  </form>
+  
+  <script>
+    document.getElementById("admin-login-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      
+      if (username && password) {
+        // Authentication would happen here
+        alert("Login successful!");
+      } else {
+        alert("Please enter both username/email and password.");
+      }
+    });
+  </script>
+</body>
+</html>
