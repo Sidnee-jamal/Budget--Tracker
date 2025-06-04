@@ -1,6 +1,7 @@
 import express from 'express';
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express()
 const port = process.env.PORT || 3000;
@@ -67,6 +68,9 @@ app.get('/user-management', (req, res) => {
     res.sendFile(path.join(__dirname,'../Forms','user-management.html'))
 });
 
+
+//Routes
+app.use('/auth', authRoutes)
 
 
 app.listen(port, () => {
