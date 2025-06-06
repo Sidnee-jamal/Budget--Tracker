@@ -6,10 +6,13 @@ import authRoutes from './routes/authRoutes.js';
 const app = express()
 const port = process.env.PORT || 3000;
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+
 app.use(express.json())
+app.use(express.urlencoded({extended: true}));
 
 app.use(express.static(path.join(__dirname, '../Forms')))
 app.use(express.static(path.join(__dirname, '../public')))
@@ -52,8 +55,8 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname,'../Forms','login.html'))
 });
 
-app.get('/Register', (req, res) => {
-    res.sendFile(path.join(__dirname,'../Forms','Register.html'))
+app.get('/register', (req, res) => {
+    res.sendFile(path.join(__dirname,'../Forms','register.html'))
 });
 
 app.get('/set-budget', (req, res) => {
@@ -71,6 +74,8 @@ app.get('/user-management', (req, res) => {
 
 //Routes
 app.use('/auth', authRoutes)
+
+
 
 
 app.listen(port, () => {
