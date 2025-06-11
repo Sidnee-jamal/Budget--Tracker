@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Goal | BudgetWise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="sidebar">
+      <h1 class="logo">BudgetWise</h1>
+      <ul class="sidebar-menu">
+        <li><a href="index.html"><i class="icon">📊</i> Dashboard</a></li>
+        <li><a href="addtransaction.html"><i class="icon">➕</i> Add Transaction</a></li>
+        <li><a href="addoreditcategory.html"><i class="icon">🗂️</i> Categories</a></li>
+        <li><a href="accounts.html"><i class="icon">💰</i> Accounts</a></li>
+        <li><a href="budgets.html"><i class="icon">📅</i> Budgets</a></li>
+        <li><a href="goals.html"><i class="icon">🏆</i> Goals</a></li>
+        <li><a href="analytics.html"><i class="icon">📈</i> Analytics</a></li>
+        <li><a href="login.html"><i class="icon">🚪</i> Logout</a></li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="card">
+        <h2>Add Savings Goal</h2>
+        <form action="/save-goal" method="POST">
+          <div class="form-group">
+            <label for="goal-name">Goal Name</label>
+            <input type="text" id="goal-name" name="goal-name" placeholder="e.g., Vacation Fund" required>
+          </div>
+
+          <div class="form-group">
+            <label for="target-amount">Target Amount (Ksh)</label>
+            <input type="number" id="target-amount" name="target-amount" step="0.01" min="0" placeholder="0.00" required>
+          </div>
+
+          <div class="form-group">
+            <label for="current-amount">Current Amount (Ksh)</label>
+            <input type="number" id="current-amount" name="current-amount" step="0.01" min="0" placeholder="0.00" required>
+          </div>
+
+          <div class="form-group">
+            <label for="target-date">Target Date</label>
+            <input type="date" id="target-date" name="target-date" required>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description (Optional)</label>
+            <textarea id="description" name="description" rows="3" placeholder="Describe your goal"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="icon">Icon</label>
+            <select id="icon" name="icon">
+              <option value="🏠">🏠 House</option>
+              <option value="✈️">✈️ Vacation</option>
+              <option value="🚗">🚗 Car</option>
+              <option value="🎓">🎓 Education</option>
+              <option value="💍">💍 Wedding</option>
+              <option value="💰">💰 General Savings</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Save Goal</button>
+            <button type="button" class="btn-cancel" onclick="window.history.back()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
