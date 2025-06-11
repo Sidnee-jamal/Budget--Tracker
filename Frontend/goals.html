@@ -1,41 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add Goal - Budget Tracker</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goals | BudgetWise</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <form class="registration-form" id="add-goal-form">
-    <h2>Add Goal</h2>
-
-    <div class="input-box">
-      <label for="goal-title">Goal Title</label>
-      <input type="text" id="goal-title" name="goal-title" value="Buy New Laptop" required>
+  <div class="app-container">
+    <div class="sidebar">
+      <h1 class="logo">BudgetWise</h1>
+      <ul class="sidebar-menu">
+        <li><a href="index.html"><i class="icon">📊</i> Dashboard</a></li>
+        <li><a href="addtransaction.html"><i class="icon">➕</i> Add Transaction</a></li>
+        <li><a href="addoreditcategory.html"><i class="icon">🗂️</i> Categories</a></li>
+        <li><a href="accounts.html"><i class="icon">💰</i> Accounts</a></li>
+        <li><a href="budgets.html"><i class="icon">📅</i> Budgets</a></li>
+        <li><a href="goals.html" class="active"><i class="icon">🏆</i> Goals</a></li>
+        <li><a href="analytics.html"><i class="icon">📈</i> Analytics</a></li>
+        <li><a href="login.html"><i class="icon">🚪</i> Logout</a></li>
+      </ul>
     </div>
 
-    <div class="input-box">
-      <label for="target-amount">Target Amount</label>
-      <input type="number" id="target-amount" name="target-amount" value="1200" required>
-    </div>
+    <div class="main-content">
+      <div class="card">
+        <h2>Savings Goals</h2>
+        
+        <div class="goal-list">
+          <div class="goal-item">
+            <div class="goal-icon">🏠</div>
+            <div class="goal-details">
+              <h3>House Down Payment</h3>
+              <div class="goal-progress">
+                <div class="progress-bar" style="width: 35%"></div>
+                <div class="progress-text">Ksh 35,000 of Ksh 100,000 (35%)</div>
+              </div>
+              <div class="goal-date">Target: December 2024</div>
+            </div>
+          </div>
+          
+          <div class="goal-item">
+            <div class="goal-icon">✈️</div>
+            <div class="goal-details">
+              <h3>Vacation Fund</h3>
+              <div class="goal-progress">
+                <div class="progress-bar" style="width: 15%"></div>
+                <div class="progress-text">Ksh 7,500 of Ksh 50,000 (15%)</div>
+              </div>
+              <div class="goal-date">Target: June 2024</div>
+            </div>
+          </div>
+        </div>
 
-    <div class="input-box">
-      <label for="current-amount">Current Amount (optional)</label>
-      <input type="number" id="current-amount" name="current-amount" value="400">
+        <button type="button" class="btn-add" onclick="location.href='addgoal.html'">
+          <i class="icon">➕</i> Add New Goal
+        </button>
+      </div>
     </div>
-
-    <div class="input-box">
-      <label for="deadline">Deadline</label>
-      <input type="date" id="deadline" name="deadline" value="2025-12-31" required>
-    </div>
-
-    <button type="submit">Save Goal</button>
-    
-    <div class="login-link">
-      <a href="Dashboard.html">Back to Dashboard</a>
-    </div>
-  </form>
-
+  </div>
 </body>
 </html>
