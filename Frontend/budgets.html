@@ -54,35 +54,6 @@
     </div>
   </form>
 
-  <script>
-    // Dynamically populate year options starting from 2000 onwards (no upper limit)
-    const yearSelect = document.getElementById("year");
-    const startYear = 2000;  // Starting year
-    const currentYear = new Date().getFullYear();
-
-    // Populate the year dropdown with relevant years (current year + 5 years)
-    for (let i = startYear; i <= currentYear + 5; i++) {
-      const option = document.createElement("option");
-      option.value = i;
-      option.textContent = i;
-      yearSelect.appendChild(option);
-    }
-
-    // Simple validation feedback
-    document.getElementById("set-budget-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const category = document.getElementById("category").value;
-      const amount = parseFloat(document.getElementById("amount").value);
-      const month = document.getElementById("month").value;
-      const year = document.getElementById("year").value;
-
-      if (category && !isNaN(amount) && month && year) {
-        alert("Budget set successfully!");
-        this.reset();
-      } else {
-        alert("Please fill in all fields correctly.");
-      }
-    });
-  </script>
+ 
 </body>
 </html>

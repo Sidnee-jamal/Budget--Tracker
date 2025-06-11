@@ -33,25 +33,9 @@
     <button type="submit">Save Goal</button>
     
     <div class="login-link">
-      <a href="#">Back to Dashboard</a>
+      <a href="Dashboard.html">Back to Dashboard</a>
     </div>
   </form>
 
-  <script>
-    document.getElementById("add-goal-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      // Simple validation
-      const goalTitle = document.getElementById("goal-title").value;
-      const targetAmount = parseFloat(document.getElementById("target-amount").value);
-      const deadline = document.getElementById("deadline").value;
-      
-      if (goalTitle && !isNaN(targetAmount) && deadline) {
-        alert("Goal saved successfully!");
-        // Form would typically submit here or make an API call
-      } else {
-        alert("Please fill all required fields correctly.");
-      }
-    });
-  </script>
 </body>
 </html>
