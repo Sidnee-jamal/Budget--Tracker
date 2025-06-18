@@ -1,1 +1,1 @@
-# PHP files will be stored here.
+# PHP files will be stored in this folder
