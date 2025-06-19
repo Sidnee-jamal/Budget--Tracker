@@ -4,58 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goals | BudgetWise</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+ 
 </head>
 <body>
-  <div class="app-container">
-    <div class="sidebar">
-      <h1 class="logo">BudgetWise</h1>
-      <ul class="sidebar-menu">
-        <li><a href="index.html"><i class="icon">📊</i> Dashboard</a></li>
-        <li><a href="addtransaction.html"><i class="icon">➕</i> Add Transaction</a></li>
-        <li><a href="addoreditcategory.html"><i class="icon">🗂️</i> Categories</a></li>
-        <li><a href="accounts.html"><i class="icon">💰</i> Accounts</a></li>
-        <li><a href="budgets.html"><i class="icon">📅</i> Budgets</a></li>
-        <li><a href="goals.html" class="active"><i class="icon">🏆</i> Goals</a></li>
-        <li><a href="analytics.html"><i class="icon">📈</i> Analytics</a></li>
-        <li><a href="login.html"><i class="icon">🚪</i> Logout</a></li>
-      </ul>
-    </div>
-
-    <div class="main-content">
-      <div class="card">
-        <h2>Savings Goals</h2>
-        
-        <div class="goal-list">
-          <div class="goal-item">
-            <div class="goal-icon">🏠</div>
-            <div class="goal-details">
-              <h3>House Down Payment</h3>
-              <div class="goal-progress">
-                <div class="progress-bar" style="width: 35%"></div>
-                <div class="progress-text">Ksh 35,000 of Ksh 100,000 (35%)</div>
-              </div>
-              <div class="goal-date">Target: December 2024</div>
-            </div>
-          </div>
-          
-          <div class="goal-item">
-            <div class="goal-icon">✈️</div>
-            <div class="goal-details">
-              <h3>Vacation Fund</h3>
-              <div class="goal-progress">
-                <div class="progress-bar" style="width: 15%"></div>
-                <div class="progress-text">Ksh 7,500 of Ksh 50,000 (15%)</div>
-              </div>
-              <div class="goal-date">Target: June 2024</div>
-            </div>
+  <div class="main-content">
+    <div class="card">
+      <h2>Savings Goals</h2>
+      
+      <div class="goal-list">
+        <div class="goal-item">
+          <div class="goal-icon">🏠</div>
+          <div class="goal-details">
+            <h3>Goal Title</h3>
+            <div class="label-placeholder"></div>
+            <h3>Progress</h3>
+            <div class="label-placeholder"></div>
+            <h3>Target Date</h3>
+            <div class="label-placeholder"></div>
           </div>
         </div>
 
-        <button type="button" class="btn-add" onclick="location.href='addgoal.html'">
-          <i class="icon">➕</i> Add New Goal
-        </button>
+        <div class="goal-item">
+          <div class="goal-icon">✈️</div>
+          <div class="goal-details">
+            <h3>Goal Title</h3>
+            <div class="label-placeholder"></div>
+            <h3>Progress</h3>
+            <div class="label-placeholder"></div>
+            <h3>Target Date</h3>
+            <div class="label-placeholder"></div>
+          </div>
+        </div>
       </div>
+
+      <button type="button" class="btn-add" onclick="location.href='addgoal.html'">
+        <i class="icon">➕</i> Add New Goal
+      </button>
     </div>
   </div>
 </body>
