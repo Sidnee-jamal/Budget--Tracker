@@ -342,5 +342,50 @@ h2 {
   background-color: #0f0;
   box-shadow: 0 0 10px #14ff00, 0 0 20px #14ff00 inset;
 }
+ .profile-container {
+      max-width: 500px;
+      margin: 60px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
 
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #4CAF50;
+      margin-bottom: 20px;
+    }
+
+    .info-label {
+      font-weight: bold;
+      color: #333;
+      margin-top: 15px;
+    }
+
+    .info-value {
+      color: #555;
+      font-size: 16px;
+      min-height: 20px;
+    }
+
+    .edit-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .edit-btn:hover {
+      background-color: #388e3c;
+    }
 
