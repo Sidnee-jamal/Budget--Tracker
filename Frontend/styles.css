@@ -1,11 +1,21 @@
-/* styles.css - Green-Black Theme */
+/* Global Reset */
+* {
+  box-sizing: border-box;
+}
 
+/* Body */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
   background-color: #0d0d0d;
   color: #e0ffe0;
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Top Bar */
@@ -48,11 +58,12 @@ body {
   color: #000;
 }
 
-.nav-links .icon {
+.nav-links .icon,
+.icon {
   margin-right: 5px;
 }
 
-/* Cards */
+/* Card & Container */
 .card {
   background-color: #1a1a1a;
   border: 2px solid #14ff00;
@@ -71,33 +82,7 @@ body {
   margin-top: 20px;
 }
 
-/* Buttons */
-.add-transaction {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.add-transaction button {
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 20px;
-  border: 2px solid #14ff00;
-  background-color: transparent;
-  color: #14ff00;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-}
-
-.add-transaction button:hover {
-  background-color: #14ff00;
-  color: #000;
-}
-
-.icon {
-  margin-right: 8px;
-}
-/* Button Base Style */
+/* Base Button Styles */
 button {
   padding: 12px 20px;
   font-size: 16px;
@@ -119,7 +104,7 @@ button:hover {
   box-shadow: 0 0 10px #14ff00, 0 0 20px #14ff00 inset;
 }
 
-/* Delete Button (red variant) */
+/* Delete Button */
 button.danger {
   border-color: red;
   color: red;
@@ -130,39 +115,54 @@ button.danger:hover {
   color: #000;
   box-shadow: 0 0 10px red, 0 0 20px red inset;
 }
-/* Form Card */
-.form-card {
+
+/* Add Transaction */
+.add-transaction {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Form Container */
+.form-body {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 20px;
   background-color: #1a1a1a;
   border: 2px solid #14ff00;
   border-radius: 20px;
-  padding: 30px;
-  max-width: 500px;
-  margin: 40px auto;
-  color: #ccffcc;
+  color: #e0ffe0;
   box-shadow: 0 0 10px rgba(20, 255, 0, 0.3);
 }
 
-/* Form Heading */
+.form-card {
+  padding: 30px;
+}
+
 .form-card h2 {
-  text-align: center;
-  margin-bottom: 20px;
   color: #14ff00;
 }
 
-/* Input Box */
-.input-box {
+/* Form Elements */
+.input-box,
+.form-group {
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.input-box label {
+.input-box label,
+.select-label {
   margin-bottom: 8px;
   font-weight: bold;
   color: #b9fbc0;
 }
 
-.input-box input {
+.input-box input,
+.form-group input,
+.form-group textarea,
+.form-group select,
+.date-time-group input {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #14ff00;
@@ -172,158 +172,23 @@ button.danger:hover {
   transition: border-color 0.3s;
 }
 
-.input-box input:focus {
-  outline: none;
-  border-color: #00ff88;
-  box-shadow: 0 0 5px #00ff88;
-}
-
-/* Button */
-button {
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 30px;
-  border: 2px solid #14ff00;
-  background-color: transparent;
-  color: #14ff00;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  width: 100%;
-}
-
-button:hover {
-  background-color: #14ff00;
-  color: #000;
-  box-shadow: 0 0 10px #14ff00, 0 0 20px #14ff00 inset;
-}
-
-/* Link */
-.login-link {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.login-link a {
-  color: #14ff00;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.login-link a:hover {
-  color: #00ff88;
-}
-/* Global Reset */
-* {
-  box-sizing: border-box;
-}
-
-
-/* Headings */
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Form Wrapper */
-.transaction-form {
-  max-width: 500px;
-  margin: auto;
-  border: 1px solid #333;
-  padding: 30px 20px;
-  border-radius: 8px;
-  background-color: #1a1a1a;
-  color: #e0ffe0;
-  border: 2px solid #14ff00;
-  box-shadow: 0 0 10px rgba(20, 255, 0, 0.3);
-}
-
-/* Type Buttons */
-.type-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.type-buttons button {
-  padding: 10px 20px;
-  border: 1px solid #14ff00;
-  background: transparent;
-  color: #14ff00;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: bold;
-}
-
-.type-buttons button:hover {
-  background-color: #14ff00;
-  color: #000;
-  box-shadow: 0 0 10px #14ff00;
-}
-
-/* Form Fields */
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #14ff00;
-  outline: none;
-  background-color: #0d0d0d;
-  color: #e0ffe0;
-  font-size: 16px;
-}
-
+.input-box input:focus,
 .form-group input:focus,
 .form-group textarea:focus,
-.form-group select:focus {
+.form-group select:focus,
+.date-time-group input:focus {
+  outline: none;
   border-color: #00ff88;
   box-shadow: 0 0 5px #00ff88;
 }
 
-/* Date-Time Grouping */
 .date-time-group {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  margin-bottom: 20px;
 }
 
-.date-time-group input {
-  flex: 1;
-  padding: 10px;
-  border-radius: 12px;
-  border: 1px solid #14ff00;
-  background-color: #0d0d0d;
-  color: #e0ffe0;
-}
-
-/* Label */
-.select-label {
-  color: #b9fbc0;
-  font-size: 14px;
-  margin: 10px 0 5px;
-  display: block;
-}
-
-/* Link Style */
-.link {
-  color: #ff4444;
-  text-decoration: underline;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* Submit Button */
+/* Form Button */
 .submit-btn {
   width: 100%;
   padding: 12px;
@@ -342,50 +207,165 @@ h2 {
   background-color: #0f0;
   box-shadow: 0 0 10px #14ff00, 0 0 20px #14ff00 inset;
 }
- .profile-container {
-      max-width: 500px;
-      margin: 60px auto;
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
 
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #4CAF50;
-      margin-bottom: 20px;
-    }
+/* Type Buttons */
+.type-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
 
-    .info-label {
-      font-weight: bold;
-      color: #333;
-      margin-top: 15px;
-    }
+.type-buttons button {
+  padding: 10px 20px;
+  border: 1px solid #14ff00;
+  background: transparent;
+  color: #14ff00;
+  border-radius: 12px;
+}
 
-    .info-value {
-      color: #555;
-      font-size: 16px;
-      min-height: 20px;
-    }
+/* Link */
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+}
 
-    .edit-btn {
-      margin-top: 30px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
+.login-link a {
+  color: #14ff00;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
 
-    .edit-btn:hover {
-      background-color: #388e3c;
-    }
+.login-link a:hover {
+  color: #00ff88;
+}
 
+/* External Link */
+.link {
+  color: #ff4444;
+  text-decoration: underline;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Profile Section */
+.profile-container {
+  max-width: 500px;
+  margin: 60px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4CAF50;
+  margin-bottom: 20px;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #333;
+  margin-top: 15px;
+}
+
+.info-value {
+  color: #555;
+  font-size: 16px;
+  min-height: 20px;
+}
+
+.edit-btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #388e3c;
+}
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0d0d0d;
+
+  padding: 20px;
+}
+
+/* Profile Container */
+.profile-container {
+  max-width: 500px;
+  margin: 60px auto;
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(20, 255, 0, 0.2);
+  text-align: center;
+  border: 2px solid #14ff00;
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #14ff00;
+  margin-bottom: 20px;
+  background-color: #0d0d0d;
+}
+
+/* Info Labels */
+.info-label {
+  font-weight: bold;
+  color: #b9fbc0;
+  margin-top: 15px;
+}
+
+/* Info Values */
+.info-value {
+  color: #ccffcc;
+  font-size: 16px;
+  min-height: 20px;
+  margin-bottom: 10px;
+}
+
+/* Edit Button */
+.edit-btn {
+  margin-top: 30px;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: #14ff00;
+  border: 2px solid #14ff00;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.edit-btn:hover {
+  background-color: #14ff00;
+  color: #000;
+  box-shadow: 0 0 10px #14ff00, 0 0 20px #14ff00 inset;
+}
