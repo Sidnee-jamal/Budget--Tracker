@@ -57,5 +57,16 @@
 </a>
  
 
+<script>
+  // Fetch accounts from localStorage
+  const accounts = JSON.parse(localStorage.getItem('accounts')) || [];
+
+  // Sum up all account balances
+  const total = accounts.reduce((sum, acc) => sum + Number(acc.amount || 0), 0);
+
+  // Insert into the dashboard card
+  document.querySelector(".card p").textContent = `Ksh ${total.toFixed(2)}`;
+</script>
+
 </body>
 </html>
