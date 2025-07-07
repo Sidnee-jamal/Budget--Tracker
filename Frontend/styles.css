@@ -455,3 +455,31 @@ body {
   color: #00ff88;
 }
 
+/* Add this to styles.css for table styling */
+.tableclass {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #1a1a1a;
+  color: #e0ffe0;
+}
+
+.tableclass th, .tableclass td {
+  border: 1px solid #14ff00;
+  padding: 12px;
+  text-align: center;
+}
+
+.tableclass th {
+  background-color: #0d0d0d;
+  color: #14ff00;
+  font-weight: bold;
+}
+
+.tableclass tr:nth-child(even) {
+  background-color: #222;
+}
+
+.tableclass tr:hover {
+  background-color: #262626;
+}
