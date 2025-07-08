@@ -14,6 +14,8 @@ $_SESSION = [];
 // Destroy the session
 session_destroy();
 
+ $log_stmt = $pdo->prepare('INSERT INTO logs (action, username) VALUES (?, ?)');
+ $log_stmt->execute(['User logged out', $username]);
 // Redirect to login page
 header('Location: ../Frontend/login.html');
 exit;
