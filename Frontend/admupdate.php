@@ -2,6 +2,19 @@
 
 require '../Backend/db.php';
 
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('adminlogin.html');
+    exit;
+}
+
+if (!isset($_SESSION['user_type_id']) || $_SESSION['user_type_id'] != 2) {
+  
+    header('adminlogin.html');
+  
+}
+
 if (!isset($_GET['updateuser'])) {
     die('No user specified.');
 }

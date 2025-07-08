@@ -1,10 +1,19 @@
 <?php
-session_start();
 
 require '../Backend/db.php';
-//include 'functions.php';
-//$admin_data = check_admLogin($conn);
 
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('adminlogin.html');
+    exit;
+}
+
+if (!isset($_SESSION['user_type_id']) || $_SESSION['user_type_id'] != 2) {
+  
+    header('adminlogin.html');
+  
+}
 ?>
 
 
@@ -23,9 +32,9 @@ require '../Backend/db.php';
   <h2>Manage Users</h2>
 
 <div class="form-link">
-          <a href="adduser.php">Add user</a>
+          <a href="adduser.html">Add user</a>
           <a href="adminlogs.php">View Logs</a>
-          <a href="adminlogout.php">Logout</a>
+          <a href="/Backend/admin_logout.php">Logout</a>
         </div>
 
       

@@ -1,3 +1,20 @@
+<?php
+require '../Backend/db.php'; // Adjust the path as necessary
+
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('login.html');
+    exit;
+}
+
+if (!isset($_SESSION['user_type_id']) || $_SESSION['user_type_id'] == 2) {
+  
+    header('login.html');
+   
+}
+?>
+<!-- The rest of your HTML code follows here -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +25,9 @@
   
 </head>
 <body>
+  
 
-  <div class="top-bar">
-    <div class="logo">BudgetWise</div>
-    <div class="nav-links">
-      <a href="Dashboard.html" class="active"><span class="icon">📊</span>Dashboard</a>
-      <a href="transactions.html"> Transactions</a>
-      <a href="accounts.html"><span class="icon">💰</span>Accounts</a>
-      <a href="budgets.html"><span class="icon">📅</span>Budgets</a>
-      <a href="profile.html"><span class="icon">👤</span>Profile</a>
-      <a href="login.html">Login</a>
-       </div>
-  </div>
+ <?php include 'header.php'; ?>
 
   <div class="card">
     <h2>Total Balance</h2>

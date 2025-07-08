@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Insert new user
     $stmt = $pdo->prepare('INSERT INTO users (username, email, password, user_type_id) VALUES (?, ?, ?, ?)');
     if ($stmt->execute([$username, $email, $hashed_password, $user_type_id])) {
-    header('Location: /Frontend/login.html');
+    header('Location: /Frontend/adminpanel.php');
     $log_stmt = $pdo->prepare('INSERT INTO logs (action, username) VALUES (?, ?)');
     $log_stmt->execute(['Registered new user', $username]);
     exit;

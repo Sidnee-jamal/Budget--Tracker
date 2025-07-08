@@ -1,5 +1,20 @@
 <?php
 require '../Backend/db.php';
+
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('adminlogin.html');
+    exit;
+}
+
+if (!isset($_SESSION['user_type_id']) || $_SESSION['user_type_id'] != 2) {
+  
+    header('adminlogin.html');
+  
+}
+
+
 $stmt = $pdo->query('SELECT * FROM logs ORDER BY timestamp DESC');
 ?>
 <!DOCTYPE html>

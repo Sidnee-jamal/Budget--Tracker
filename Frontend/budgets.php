@@ -1,3 +1,19 @@
+<?php
+require '../Backend/db.php'; // Adjust the path as necessary
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('login.html');
+    exit;
+}
+
+if (!isset($_SESSION['user_type_id']) || $_SESSION['user_type_id'] == 2) {
+  
+    header('login.html');
+  
+}
+?>
+<!-- The rest of your HTML code follows here -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +23,9 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+ <?php include 'header.php'; ?>
+
   <form class="registration-form" id="set-budget-form">
     <h2>Set Budget</h2>
 
@@ -49,9 +68,6 @@
 
     <button type="submit">Set Budget</button>
 
-    <div class="login-link">
-      <a href="#">Back to Dashboard</a>
-    </div>
   </form>
 
  

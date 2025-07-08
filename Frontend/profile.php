@@ -1,3 +1,21 @@
+<?php
+require '../Backend/db.php'; // Adjust the path as necessary
+
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('login.html');
+    exit;
+}
+
+if (!isset($_SESSION['user_type_id']) || $_SESSION['user_type_id'] == 2) {
+  
+    header('login.html');
+   
+}
+
+?>
+<!-- The rest of your HTML code follows here -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +26,7 @@
 
 </head>
 <body>
-
+ <?php include 'header.php'; ?>
   <div class="profile-container">
     <!-- Profile image loaded from backend -->
     <img src="" alt="Profile Picture" class="profile-pic" id="profileImage">

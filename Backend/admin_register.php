@@ -31,16 +31,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Get the user_type_id for 'user'
     $stmt = $pdo->prepare('SELECT id FROM user_types WHERE type_name = ?');
-    $stmt->execute(['user']);
+    $stmt->execute(['admin']);
     $user_type = $stmt->fetch();
-    $user_type_id = 2; // fallback to 2
+    $user_type_id = $user_type['id']; // Assuming 'admin' is the type you want to assign
 
     // Insert new user
     $stmt = $pdo->prepare('INSERT INTO users (username, email, password, user_type_id) VALUES (?, ?, ?, ?)');
     if ($stmt->execute([$username, $email, $hashed_password, $user_type_id])) {
-    header('Location: /Frontend/login.html');
+    header('Location: /Frontend/adminlogin.html');
     $log_stmt = $pdo->prepare('INSERT INTO logs (action, username) VALUES (?, ?)');
-    $log_stmt->execute(['Registered new user', $username]);
+    $log_stmt->execute(['Registered new admin', $username]);
     exit;
 } else {
     echo 'Registration failed. Please try again.';

@@ -1,3 +1,21 @@
+<?php
+require '../Backend/db.php'; // Adjust the path as necessary
+
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('login.html');
+    exit;
+}
+
+if (!isset($_SESSION['user_type_id']) || $_SESSION['user_type_id'] == 2) {
+  
+    header('login.html');
+   
+}
+
+?>
+<!-- The rest of your HTML code follows here -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Accounts</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
+  <!-- <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
@@ -115,10 +133,11 @@
       border-radius: 6px;
       border: none;
     }
-  </style>
+  </style> -->
 </head>
 <body>
 
+ <?php include 'header.php'; ?>
   <h2>My Accounts</h2>
 
   
