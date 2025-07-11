@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login Form</title>
-  <link rel="stylesheet" href="styles.css">
-  
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="form-wrapper">
-    <section class="form-container">
-      <h2>Login to Your Account</h2>
-      <form action="/auth/login" method="post">
-        <div class="form-group">
-          <label for="username">Username or Email</label>
-          <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
-        </div>
+  <div class="form-body">
+    <main class="form-wrapper">
+      <section class="form-container">
+        <h2>Login to Your Account</h2>
+        <form action="login.php" method="post">
 
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        </div>
+          <div class="form-group">
+            <label for="username">Username or Email</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username or email" required />
+          </div>
 
-        <button type="submit">Login</button>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+          </div>
+
+          <button type="submit" class="submit-btn">Login</button>
+
+          <div class="form-link">
+            Don’t have an account? <a href="Register.html">Register</a>
+          </div>
         
-        <div class="form-link">
-          Don't have an account? <a href="Register.html">Register</a>
-        </div>
-        <div class="form-link">
-          <a href="reset-password.html">Forgot your password?</a>
-        </div>
-      </form>
-    </section>
-  </main>
+        </form>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
